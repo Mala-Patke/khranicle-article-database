@@ -4,6 +4,7 @@ const nextConfig = {
     swcMinify: true,
 
     async headers() {
+        console.log("I've been called in next.config.js!");
         return [
             {
                 source: "/api/getArticleData",
