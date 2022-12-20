@@ -5,6 +5,8 @@ const attrEnum = ["title", "author", "beat", "desc", "edition", "date", "url"];
  * @param {import("http").ServerResponse} res
  */
 export default async function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://khranicle.com');
+
     const request = await fetch(process.env.GOOGLE_SHEET_URL);
     const data = await request.json();
 
