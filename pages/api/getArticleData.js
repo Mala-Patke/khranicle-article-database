@@ -1,4 +1,4 @@
-const attrEnum = ["title", "author", "beat", "desc", "edition", "date", "url"];
+const attrEnum = ["title", "author", "beat", "desc", "edition", "date", "url", "image"];
 
 /**
  * @param {import("http").IncomingMessage} req
