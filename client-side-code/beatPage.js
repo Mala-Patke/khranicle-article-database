@@ -19,14 +19,13 @@ function createNewListElement(title, text, url, imgLink = "https://i.imgur.com/y
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://khranicle.vercel.app/api/getArticleData/?beat=opinion", {
+    //This is manual rn but in the future it'll be automatic
+    let page = "opinion";
+
+    fetch("https://khranicle.vercel.app/api/getArticleData/?beat=" + page, {
         method: 'GET'
-    })
-        .then(res => res.text())
+    }).then(res => res.json())
         .then(data => {
-            console.log(data);
-            for(let { title, desc, url } of data) {
-                createNewListElement(title, desc, url)
-            }
+            for(let { title, desc, url } of data) createNewListElement(title, desc, url)
         })
 });
