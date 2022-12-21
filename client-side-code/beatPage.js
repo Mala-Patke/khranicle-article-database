@@ -4,6 +4,7 @@ function createNewListElement(title, text, url, imgLink = "https://i.imgur.com/y
 
     //New image
     listElement.childNodes[1].childNodes[1].childNodes[1].attributes["data-src"].nodeValue = imgLink;
+    listElement.childNodes[1].childNodes[1].childNodes[1].attributes["data-image"].nodeValue = imgLink;
 
     //New header
     listElement.childNodes[3].childNodes[1].childNodes[1].textContent = title;
@@ -21,11 +22,11 @@ function createNewListElement(title, text, url, imgLink = "https://i.imgur.com/y
 document.addEventListener("DOMContentLoaded", () => {
     //This is manual rn but in the future it'll be automatic
     let page = "opinion";
-
-    fetch("https://khranicle.vercel.app/api/getArticleData/?beat=" + page, {
+    
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://khranicle.vercel.app/api/getArticleData/?beat=${page}`)}`, {
         method: 'GET'
     }).then(res => res.json())
-        .then(data => {
-            for(let { title, desc, url } of data) createNewListElement(title, desc, url)
+        .then(({ contents }) => {
+            for(let { title, desc, url, img } of JSON.parse(contents).reverse()) createNewListElement(title, desc, url, img)
         })
 });
