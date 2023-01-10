@@ -1,13 +1,13 @@
 {
     "functions": {
         "api/getArticleData.js": {
-            "memory": 3008,
+            "memory": 1024,
             "maxDuration": 10
         }
     },
     "headers": [
       {
-        "source": "api/getArticleData",
+        "source": "/api/getArticleData",
         "headers": [
           { "key": "Access-Control-Allow-Credentials", "value": "true" },
           { "key": "Access-Control-Allow-Origin", "value": "https://www.khranicle.com/" },

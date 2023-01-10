@@ -15,6 +15,7 @@ test.js
 
 # production
 /build
+*.min.js
 
 # misc
 .DS_Store
